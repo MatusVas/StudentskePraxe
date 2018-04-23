@@ -1,27 +1,29 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Matt
+ * Date: 23.4.2018
+ * Time: 10:06
+ */
 
-class Skoly_model extends CI_Model
+class Pracovny_den_model extends CI_Model
 {
-
     public function __construct()
     {
     }
 
-    function getRows($id = "")
+    function getRows($id)
     {
         if (!empty($id)) {
             $query = $this->db->
-            get_where('skoly', array('idSkoly' => $id));
+            get_where('pracovny_den', array('idPracovny_den' => $id));
             return $query->row_array();
-        } else {
-            $query = $this->db->get('skoly');
-            return $query->result_array();
         }
     }
 
     public function insert($data = array())
     {
-        $insert = $this->db->insert('skoly', $data);
+        $insert = $this->db->insert('pracovny_den', $data);
         if ($insert) {
             return $this->db->insert_id();
         } else {
@@ -32,7 +34,7 @@ class Skoly_model extends CI_Model
     public function update($data, $id)
     {
         if (!empty($data) && !empty($id)) {
-            $update = $this->db->update('skoly', $data, array('idSkoly' => $id));
+            $update = $this->db->update('pracovny_den', $data, array('idPracovny_den' => $id));
             return $update ? true : false;
         } else {
             return false;
@@ -41,13 +43,13 @@ class Skoly_model extends CI_Model
 
     public function delete($id)
     {
-        $delete = $this->db->delete('skoly', array('idSkoly' => $id));
+        $delete = $this->db->delete('pracovny_den', array('idPracovny_den' => $id));
         return $delete ? true : false;
     }
 
     public function fetch_data($limit,$start) {
         $this->db->limit($limit,$start);
-        $query = $this->db->get("skoly");
+        $query = $this->db->get("pracovny_den");
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
                 $data[] = $row;
@@ -58,7 +60,7 @@ class Skoly_model extends CI_Model
     }
 
     public function record_count (){
-        return $this->db->count_all("skoly");
+        return $this->db->count_all("pracovny_den");
     }
 
 }

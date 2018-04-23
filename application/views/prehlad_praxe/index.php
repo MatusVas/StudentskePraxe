@@ -82,12 +82,6 @@
                             Prehľad praxe
                         </a>
                     </li>
-                    <li>
-                        <a href="<?php echo site_url('zarobok_studenta/index'); ?>" >
-                            <i class="far fa-chart-bar"></i>
-                            Zárobok študenta
-                        </a>
-                    </li>
                 </ul>
             </div>
     </nav>
@@ -98,7 +92,7 @@
 
             <div class="col-lg-12">
                 <div class="panel-heading">
-                    <h2>Študenti, ktorí praxujú:</h2>
+                    <h2>Prahľad praxe študentov:</h2>
                 </div>
 
                 <div class="panel-body">
@@ -119,8 +113,8 @@
                                 <div class="panel panel-default ">
 
                                     <div class="panel-heading">
-                                        <b>Študenti</b>
-                                        <a href="<?php echo site_url('studenti/add'); ?>" class="pull-right">
+                                        <b>Prahľad praxe</b>
+                                        <a href="<?php echo site_url('prehlad_praxe/add'); ?>" class="pull-right" title="Pridať záznam">
                                             <i class="fas fa-plus"></i>
                                         </a>
                                     </div>
@@ -129,53 +123,47 @@
                                         <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Názov školy</th>
                                             <th>Študent</th>
-                                            <th>Rok narodenia</th>
-                                            <th>Adresa</th>
-                                            <th>Mesto</th>
-                                            <th>Telefón</th>
-                                            <th>E-mail</th>
+                                            <th>Zodpovedná osoba</th>
+                                            <th>Druh praxe</th>
+                                            <th>Začiatok praxe</th>
+                                            <th>Koniec praxe</th>
                                             <th></th>
                                         </tr>
                                         </thead>
                                         <tbody id="userData">
-                                        <?php if (!empty($studenti)): foreach ($studenti as $Studenti): ?>
+                                        <?php if (!empty($prehlad_praxe)): foreach ($prehlad_praxe as $Prehlad_praxe): ?>
                                             <tr>
                                                 <td>
-                                                    <?php echo '#' . $Studenti['idStudenti']; ?>
+                                                    <?php echo '#' . $Prehlad_praxe['idPrax_studenta']; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $Studenti['Nazov']; ?>
+                                                    <?php echo $Prehlad_praxe['StudentName']; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $Studenti['fullname']; ?>
+                                                    <?php echo $Prehlad_praxe['ZodpOsobaName']; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $Studenti['Rok_narodenia']; ?>
+                                                    <?php echo $Prehlad_praxe['Druh']; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $Studenti['Adresa']; ?>
+                                                    <?php echo $Prehlad_praxe['Zaciatok']; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $Studenti['Mesto']; ?>
+                                                    <?php echo $Prehlad_praxe['Koniec']; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $Studenti['Telefon']; ?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $Studenti['Email']; ?>
-                                                </td>
-
-                                                <td>
-                                                    <a href="<?php echo site_url('studenti/view/' . $Studenti['idStudenti']); ?>">
+                                                    <a href="<?php echo site_url('pracovny_den/index/' . $Prehlad_praxe['idPrax_studenta']); ?>" title="Pracovné dni a zárobky študenta">
+                                                        <i class="far fa-chart-bar"></i>
+                                                    </a>
+                                                    <a href="<?php echo site_url('prehlad_praxe/view/' . $Prehlad_praxe['idPrax_studenta']); ?>" title="Detail záznamu">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
-                                                    <a href="<?php echo site_url('studenti/edit/' . $Studenti['idStudenti']); ?>">
+                                                    <a href="<?php echo site_url('prehlad_praxe/edit/' . $Prehlad_praxe['idPrax_studenta']); ?>" title="Editovať záznam">
                                                         <i class="far fa-edit"></i>
                                                     </a>
-                                                    <a href="<?php echo site_url('studenti/delete/' . $Studenti['idStudenti']); ?>"
-                                                       onclick="return confirm('Naozaj chcete zmazať tento záznam?')">
+                                                    <a href="<?php echo site_url('prehlad_praxe/delete/' . $Prehlad_praxe['idPrax_studenta']); ?>"
+                                                       onclick="return confirm('Naozaj chcete zmazať tento záznam?')" title="Zmazať záznam">
                                                         <i class="far fa-trash-alt"></i>
                                                     </a>
                                                 </td>

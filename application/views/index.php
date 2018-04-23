@@ -83,7 +83,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('zarobok_studenta/index'); ?>" >
+                        <a href="<?php echo site_url('pracovny_den/index'); ?>" >
                             <i class="far fa-chart-bar"></i>
                             Zárobok študenta
                         </a>
