@@ -7,7 +7,7 @@
     <meta name="description" content="Študentská prax vo firmách.">
     <meta name="author" content="Matúš Vaš">
 
-    <title>Študentská prax</title>
+    <title>Študentská prax - Prehľad praxe</title>
 
     <!-- Page Icon -->
     <link rel="icon" href="<?php echo base_url();?>assets/logo.png">
@@ -25,8 +25,8 @@
     <link href="<?php echo base_url();?>assets/css/fa-svg-with-js.css" rel="stylesheet">
     <script src="<?php echo base_url();?>assets/js/fontawesome-all.min.js"></script>
 </head>
-<body>
 
+<body>
 <div id="wrapper">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -38,13 +38,10 @@
         </button>
 
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="<?php echo base_url();?>index.php"><i class="fas fa-home"></i> <b>DOMOV</b></a></li>
-        </ul>
-
-        <ul class="nav navbar-right navbar-top-links">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <b>Meno študenta</b>
+            <li>
+                <a href="<?php echo base_url();?>index.php">
+                    <i class="fas fa-home"></i>
+                    <b>DOMOV</b>
                 </a>
             </li>
         </ul>
@@ -55,25 +52,25 @@
                     <li>
                         <a href="<?php echo site_url('firmy/index')?>" class="active">
                             <i class="fas fa-user-circle"></i>
-                            Firmy
+                            <b>Firmy</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('zodpovedne_osoby/index'); ?>" class="active">
                             <i class="fas fa-users"></i>
-                            Zodpovedné osoby
+                            <b>Zodpovedné osoby</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('skoly/index'); ?>" class="active">
                             <i class="fas fa-graduation-cap"></i>
-                            Školy
+                            <b>Školy</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('studenti/index'); ?>" class="active">
                             <i class="fas fa-users"></i>
-                            Študenti
+                            <b>Študenti</b>
                         </a>
                     </li>
                     <li>
@@ -113,7 +110,7 @@
                                 <div class="panel panel-default ">
 
                                     <div class="panel-heading">
-                                        <b>Prahľad praxe</b>
+                                        <b>PREHĽAD PRAXE</b>
                                         <a href="<?php echo site_url('prehlad_praxe/add'); ?>" class="pull-right" title="Pridať záznam">
                                             <i class="fas fa-plus"></i>
                                         </a>
@@ -135,34 +132,34 @@
                                         <?php if (!empty($prehlad_praxe)): foreach ($prehlad_praxe as $Prehlad_praxe): ?>
                                             <tr>
                                                 <td>
-                                                    <?php echo '#' . $Prehlad_praxe['idPrax_studenta']; ?>
+                                                    <?php echo '#' . $Prehlad_praxe->idPrax_studenta; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $Prehlad_praxe['StudentName']; ?>
+                                                    <?php echo $Prehlad_praxe->StudentName; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $Prehlad_praxe['ZodpOsobaName']; ?>
+                                                    <?php echo $Prehlad_praxe->ZodpOsobaName; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $Prehlad_praxe['Druh']; ?>
+                                                    <?php echo $Prehlad_praxe->Druh; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $Prehlad_praxe['Zaciatok']; ?>
+                                                    <?php echo $Prehlad_praxe->Zaciatok; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $Prehlad_praxe['Koniec']; ?>
+                                                    <?php echo $Prehlad_praxe->Koniec; ?>
                                                 </td>
                                                 <td>
-                                                    <a href="<?php echo site_url('pracovny_den/index/' . $Prehlad_praxe['idPrax_studenta']); ?>" title="Pracovné dni a zárobky študenta">
+                                                    <a href="<?php echo site_url('pracovny_den/index/' . $Prehlad_praxe->idPrax_studenta); ?>" title="Pracovné dni a zárobky študenta">
                                                         <i class="far fa-chart-bar"></i>
                                                     </a>
-                                                    <a href="<?php echo site_url('prehlad_praxe/view/' . $Prehlad_praxe['idPrax_studenta']); ?>" title="Detail záznamu">
+                                                    <a href="<?php echo site_url('prehlad_praxe/view/' . $Prehlad_praxe->idPrax_studenta); ?>" title="Detail záznamu">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
-                                                    <a href="<?php echo site_url('prehlad_praxe/edit/' . $Prehlad_praxe['idPrax_studenta']); ?>" title="Editovať záznam">
+                                                    <a href="<?php echo site_url('prehlad_praxe/edit/' . $Prehlad_praxe->idPrax_studenta); ?>" title="Editovať záznam">
                                                         <i class="far fa-edit"></i>
                                                     </a>
-                                                    <a href="<?php echo site_url('prehlad_praxe/delete/' . $Prehlad_praxe['idPrax_studenta']); ?>"
+                                                    <a href="<?php echo site_url('prehlad_praxe/delete/' . $Prehlad_praxe->idPrax_studenta); ?>"
                                                        onclick="return confirm('Naozaj chcete zmazať tento záznam?')" title="Zmazať záznam">
                                                         <i class="far fa-trash-alt"></i>
                                                     </a>
@@ -175,6 +172,14 @@
                                         <?php endif; ?>
                                         </tbody>
                                     </table>
+                                </div>
+
+                                <div id="pagination" style="align-content: center">
+                                    <ul class="pagination">
+                                        <?php foreach ($links as $link) {
+                                            echo "<li class=\"page-item\">". $link."</li>";
+                                        } ?>
+                                    </ul>
                                 </div>
 
                             </div>

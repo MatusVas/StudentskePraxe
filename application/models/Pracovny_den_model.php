@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Matt
- * Date: 23.4.2018
- * Time: 10:06
- */
 
 class Pracovny_den_model extends CI_Model
 {
@@ -15,8 +9,9 @@ class Pracovny_den_model extends CI_Model
     function getRows($id)
     {
         if (!empty($id)) {
-            $query = $this->db->
-            get_where('pracovny_den', array('idPracovny_den' => $id));
+            $this->db->select('idPracovny_den,idPrax_studenta,Den,Hodinova_sadzba,Pocet_hodin,
+            (Pocet_hodin*Hodinova_sadzba) as total');
+            $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $id));
             return $query->row_array();
         }
     }

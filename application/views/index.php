@@ -25,8 +25,8 @@
     <link href="<?php echo base_url();?>assets/css/fa-svg-with-js.css" rel="stylesheet">
     <script src="<?php echo base_url();?>assets/js/fontawesome-all.min.js"></script>
 </head>
-<body>
 
+<body>
 <div id="wrapper">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -38,13 +38,10 @@
         </button>
 
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="<?php echo base_url();?>index.php"><i class="fas fa-home"></i> <b>DOMOV</b></a></li>
-        </ul>
-
-        <ul class="nav navbar-right navbar-top-links">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <b>Meno študenta</b>
+            <li>
+                <a href="<?php echo base_url();?>index.php">
+                    <i class="fas fa-home"></i>
+                    <b>DOMOV</b>
                 </a>
             </li>
         </ul>
@@ -55,25 +52,25 @@
                     <li>
                         <a href="<?php echo site_url('firmy/index')?>" class="active">
                             <i class="fas fa-user-circle"></i>
-                            Firmy
+                            <b>Firmy</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('zodpovedne_osoby/index'); ?>" class="active">
                             <i class="fas fa-users"></i>
-                            Zodpovedné osoby
+                            <b>Zodpovedné osoby</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('skoly/index'); ?>" class="active">
                             <i class="fas fa-graduation-cap"></i>
-                            Školy
+                            <b>Školy</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('studenti/index'); ?>" class="active">
                             <i class="fas fa-users"></i>
-                            Študenti
+                            <b>Študenti</b>
                         </a>
                     </li>
                     <li>
@@ -82,35 +79,78 @@
                             Prehľad praxe
                         </a>
                     </li>
-                    <li>
-                        <a href="<?php echo site_url('pracovny_den/index'); ?>" >
-                            <i class="far fa-chart-bar"></i>
-                            Zárobok študenta
-                        </a>
-                    </li>
                 </ul>
             </div>
     </nav>
 
     <div id="page-wrapper" style="margin-top:5%;">
-
         <div class="row">
+
+            <div style="margin-bottom: 5%; text-align: center;">
+                <p>
+                <h4><b>Ponúkame prax pre študentov na vysokých školách, nie len na Slovenku, ale aj v zahraničí!</b></h4>
+                </p>
+            </div>
+
             <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary">
+                <div class="panel" style="background-color: rgba(0,0,80,0.9); color: white;">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="fa fa-comments fa-5x"></i>
+                                <i class="fas fa-user-circle fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
-                                <div>New Comments!</div>
+                                <div class="huge"><?php echo $firmy_count;?></div>
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="<?php echo site_url('firmy/index')?>">
                         <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
+                            <span class="pull-left"><b>FIRMY</b></span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="panel" style="background-color: rgba(0,0,100,0.9); color: white;">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fas fa-users fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"><?php echo $zodpovedne_osoby_count;?></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="<?php echo site_url('zodpovedne_osoby/index'); ?>">
+                        <div class="panel-footer">
+                            <span class="pull-left"><b>ZODPOVEDNÉ OSOBY</b></span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="panel" style="background-color: rgba(0,0,120,0.9); color: white;">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fas fa-graduation-cap fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                    <div class="huge"><?php echo $skoly_count;?></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="<?php echo site_url('skoly/index'); ?>">
+                        <div class="panel-footer">
+                            <span class="pull-left"><b>ŠKOLY</b></span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                             <div class="clearfix"></div>
@@ -120,80 +160,29 @@
             </div>
 
             <div class="col-lg-3 col-md-6">
-                <div class="panel panel-green">
+                <div class="panel" style="background-color: rgba(0,0,140,0.9); color: white;">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="fa fa-tasks fa-5x"></i>
+                                <i class="fas fa-users fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
-                                <div>New Tasks!</div>
+                                <div class="huge"><?php echo $studenti_count;?></div>
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="<?php echo site_url('studenti/index'); ?>">
                         <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-yellow">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">124</div>
-                                <div>New Orders!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-red">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-support fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">13</div>
-                                <div>Support Tickets!</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
+                            <span class="pull-left"><b>ŠTUDENTI</b></span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                             <div class="clearfix"></div>
                         </div>
                     </a>
                 </div>
             </div>
+
         </div>
         <!-- /.row -->
-
-        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-
     </div>
     <!-- /.page-wrapper -->
 
@@ -205,38 +194,6 @@
         <script src="<?php echo base_url(); ?>assets/js/morris.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/morris-data.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/startmin.js"></script>
-
-    <!-- Graphs -->
-    <script src="<?php echo base_url();?>assets/js/chart.min.js">"></script>
-    <script>
-        var ctx = document.getElementById("myChart");
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                datasets: [{
-                    data: [1339, 2145, 1483, 2003, 2489, 2092, 1034],
-                    lineTension: 0,
-                    backgroundColor: 'transparent',
-                    borderColor: '#007bff',
-                    borderWidth: 4,
-                    pointBackgroundColor: '#007bff'
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: false
-                        }
-                    }]
-                },
-                legend: {
-                    display: false,
-                }
-            }
-        });
-    </script>
 
 </body>
 </html>

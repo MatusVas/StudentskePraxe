@@ -7,7 +7,7 @@
     <meta name="description" content="Študentská prax vo firmách.">
     <meta name="author" content="Matúš Vaš">
 
-    <title>Študentská prax</title>
+    <title>Študentská prax - Školy</title>
 
     <!-- Page Icon -->
     <link rel="icon" href="<?php echo base_url();?>assets/logo.png">
@@ -25,8 +25,8 @@
     <link href="<?php echo base_url();?>assets/css/fa-svg-with-js.css" rel="stylesheet">
     <script src="<?php echo base_url();?>assets/js/fontawesome-all.min.js"></script>
 </head>
-<body>
 
+<body>
 <div id="wrapper">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -38,13 +38,10 @@
         </button>
 
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="<?php echo base_url();?>index.php"><i class="fas fa-home"></i> <b>DOMOV</b></a></li>
-        </ul>
-
-        <ul class="nav navbar-right navbar-top-links">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <b>Meno študenta</b>
+            <li>
+                <a href="<?php echo base_url();?>index.php">
+                    <i class="fas fa-home"></i>
+                    <b>DOMOV</b>
                 </a>
             </li>
         </ul>
@@ -55,37 +52,31 @@
                     <li>
                         <a href="<?php echo site_url('firmy/index')?>" class="active">
                             <i class="fas fa-user-circle"></i>
-                            Firmy
+                            <b>Firmy</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('zodpovedne_osoby/index'); ?>" class="active">
                             <i class="fas fa-users"></i>
-                            Zodpovedné osoby
+                            <b>Zodpovedné osoby</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('skoly/index'); ?>" class="active">
                             <i class="fas fa-graduation-cap"></i>
-                            Školy
+                            <b>Školy</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('studenti/index'); ?>" class="active">
                             <i class="fas fa-users"></i>
-                            Študenti
+                            <b>Študenti</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('prehlad_praxe/index'); ?>" >
                             <i class="far fa-list-alt"></i>
                             Prehľad praxe
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo site_url('zarobok_studenta/index'); ?>" >
-                            <i class="far fa-chart-bar"></i>
-                            Zárobok študenta
                         </a>
                     </li>
                 </ul>
@@ -96,7 +87,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Pridanie/Edit školy:</h1>
+                <h1 class="page-header">Pridanie/edit školy:</h1>
 
                 <div class="col-xs-12">
                     <?php
@@ -113,7 +104,7 @@
                         <div class="panel panel-default">
 
                             <div class="panel-heading">
-                                <b>Škola</b>
+                                <b>ŠKOLA</b>
                                 <a href="<?php echo site_url('skoly'); ?>" class="pull-right">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
@@ -122,35 +113,35 @@
                             <div class="panel-body">
                                 <form method="post" action="" class="form">
                                     <div class="form-group">
-                                        <label for="title"><b>Názov</b></label>
+                                        <label for="title"><b>Názov školy:</b></label>
                                         <input type="text" class="form-control" name="Nazov" placeholder="Zadajte názov školy"
                                                value="<?php echo !empty($post['Nazov']) ? $post['Nazov'] : ''; ?>">
                                         <?php echo form_error('Nazov', '<p class="help-block text-danger">', '</p>');?>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="title"><b>Adresa</b></label>
+                                        <label for="title"><b>Adresa:</b></label>
                                         <input type="text" class="form-control" name="Adresa" placeholder="Zadajte adresu"
                                                value="<?php echo !empty($post['Adresa']) ? $post['Adresa'] : ''; ?>">
                                         <?php echo form_error('Adresa', '<p class="help-block text-danger">', '</p>'); ?>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="title"><b>Mesto</b></label>
+                                        <label for="title"><b>Mesto:</b></label>
                                         <input type="text" class="form-control" name="Mesto" placeholder="Zadajte mesto"
                                                value="<?php echo !empty($post['Mesto']) ? $post['Mesto'] : ''; ?>">
                                         <?php echo form_error('Mesto', '<p class="help-block text-danger">', '</p>'); ?>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="title"><b>Telefón</b></label>
-                                        <input type="text" class="form-control" name="Telefon" placeholder="Zadajte telefón"
+                                        <label for="title"><b>Telefón:</b></label>
+                                        <input type="text" class="form-control" name="Telefon" placeholder="+421"
                                                value="<?php echo !empty($post['Telefon']) ? $post['Telefon'] : ''; ?>">
                                         <?php echo form_error('Telefon', '<p class="help-block text-danger">', '</p>'); ?>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="title"><b>E-mail</b></label>
+                                        <label for="title"><b>E-mail:</b></label>
                                         <input type="text" class="form-control" name="Email" placeholder="Zadajte e-mail"
                                                value="<?php echo !empty($post['Email']) ? $post['Email'] : ''; ?>">
                                         <?php echo form_error('Email', '<p class="help-block text-danger">', '</p>'); ?>

@@ -7,7 +7,7 @@
     <meta name="description" content="Študentská prax vo firmách.">
     <meta name="author" content="Matúš Vaš">
 
-    <title>Študentská prax - Školy</title>
+    <title>Študentská prax - Pracovný deň</title>
 
     <!-- Page Icon -->
     <link rel="icon" href="<?php echo base_url();?>assets/logo.png">
@@ -84,58 +84,68 @@
     </nav>
 
     <div id="page-wrapper" style="margin-top:5%;">
-
         <div class="row">
 
             <div class="col-lg-12">
-                <h1 class="page-header">Detail záznamu školy:</h1>
+                <h1 class="page-header">Pridanie/edit pracovného dňa:</h1>
+
+                <div class="col-xs-12">
+                    <?php
+                    if (!empty($success_msg)) {
+                        echo '<div class="alert alert-success">' . $success_msg . '</div>';
+                    } elseif (!empty($error_msg)) {
+                        echo '<div class="alert alert-danger">' . $error_msg . '</div>';
+                    }
+                    ?>
+                </div>
+
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="panel panel-default">
 
                             <div class="panel-heading">
-                                <b>ŠKOLA</b>
-                                <a href="<?php echo site_url('skoly'); ?>" class="pull-right">
+                                <b>PRACOVNÝ DEŇ</b>
+                                <a href="<?php echo site_url('pracovny_den'); ?>" class="pull-right">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
                             </div>
 
                             <div class="panel-body">
-                                <div class="form-group"><label><b>Názov školy:</b></label>
-                                    <p>
-                                        <?php echo !empty($skoly['Nazov']) ? $skoly['Nazov'] : ''; ?>
-                                    </p>
-                                </div>
-                                <div class="form-group"><label><b>Adresa:</b></label>
-                                    <p>
-                                        <?php echo !empty($skoly['Adresa']) ? $skoly['Adresa'] : ''; ?>
-                                    </p>
-                                </div>
-                                <div class="form-group"><label><b>Mesto:</b></label>
-                                    <p>
-                                        <?php echo !empty($skoly['Mesto']) ? $skoly['Mesto'] : ''; ?>
-                                    </p>
-                                </div>
-                                <div class="form-group"><label><b>Telefón:</b></label>
-                                    <p>
-                                        <?php echo !empty($skoly['Telefon']) ? $skoly['Telefon'] : ''; ?>
-                                    </p>
-                                </div>
-                                <div class="form-group"><label><b>E-mail:</b></label>
-                                    <p>
-                                        <?php echo !empty($skoly['Email']) ? $skoly['Email'] : ''; ?>
-                                    </p>
-                                </div>
+                                <form method="post" action="" class="form">
 
+                                    <div class="form-group">
+                                        <label for="title"><b>Pracovný deň:</b></label>
+                                        <input type="text" class="form-control" name="Den" placeholder="YYYY-MM-DD"
+                                               value="<?php echo !empty($post['Den']) ? $post['Den'] : ''; ?>">
+                                        <?php echo form_error('Den', '<p class="help-block text-danger">', '</p>'); ?>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="title"><b>Hodinová sadzba:</b></label>
+                                        <input type="text" class="form-control" name="Hodinova_sadzba" placeholder="0.0"
+                                               value="<?php echo !empty($post['Hodinova_sadzba']) ? $post['Hodinova_sadzba'] : ''; ?>">
+                                        <?php echo form_error('Hodinova_sadzba', '<p class="help-block text-danger">', '</p>'); ?>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="title"><b>Počet odpracovaných hodín:</b></label>
+                                        <input type="text" class="form-control" name="Pocet_hodin" placeholder="0.0"
+                                               value="<?php echo !empty($post['Pocet_hodin']) ? $post['Pocet_hodin'] : ''; ?>">
+                                        <?php echo form_error('Pocet_hodin', '<p class="help-block text-danger">', '</p>'); ?>
+                                    </div>
+
+                                    <input type="submit" name="postSubmit" class="btn btn-primary" value="Potvrdiť"/>
+                                </form>
                             </div>
 
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- /.col-lg-12 -->
 
         </div>
-
+        <!-- /.row -->
     </div>
     <!-- /.page-wrapper -->
 

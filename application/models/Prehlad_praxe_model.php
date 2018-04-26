@@ -11,7 +11,7 @@ class Prehlad_praxe_model extends CI_Model
         if (!empty($id)) {
             $this->db->select('prax_studenta.idPrax_studenta,CONCAT(studenti.Meno," ",studenti.Priezvisko) as StudentName, 
             CONCAT(zodpovedne_osoby.Meno," ",zodpovedne_osoby.Priezvisko) as ZodpOsobaName,prax_studenta.Druh,prax_studenta.Zaciatok,
-            prax_studenta.Koniec')
+            prax_studenta.Koniec,prax_studenta.idStudenti,prax_studenta.idZodpovedne_osoby')
                 ->join('studenti','prax_studenta.idStudenti=studenti.idStudenti')
                 ->join('zodpovedne_osoby','prax_studenta.idZodpovedne_osoby=zodpovedne_osoby.idZodpovedne_osoby');
             $query = $this->db->get_where('prax_studenta', array('idPrax_studenta' => $id));
@@ -19,7 +19,7 @@ class Prehlad_praxe_model extends CI_Model
         } else {
             $this->db->select('prax_studenta.idPrax_studenta,CONCAT(studenti.Meno," ",studenti.Priezvisko) as StudentName, 
             CONCAT(zodpovedne_osoby.Meno," ",zodpovedne_osoby.Priezvisko) as ZodpOsobaName,prax_studenta.Druh,prax_studenta.Zaciatok,
-            prax_studenta.Koniec')
+            prax_studenta.Koniec,prax_studenta.idStudenti,prax_studenta.idZodpovedne_osoby')
                 ->join('studenti','prax_studenta.idStudenti=studenti.idStudenti')
                 ->join('zodpovedne_osoby','prax_studenta.idZodpovedne_osoby=zodpovedne_osoby.idZodpovedne_osoby');
             $query = $this->db->get('prax_studenta');

@@ -7,7 +7,7 @@
     <meta name="description" content="Študentská prax vo firmách.">
     <meta name="author" content="Matúš Vaš">
 
-    <title>Študentská prax</title>
+    <title>Študentská prax - Prehľad praxe</title>
 
     <!-- Page Icon -->
     <link rel="icon" href="<?php echo base_url();?>assets/logo.png">
@@ -25,8 +25,8 @@
     <link href="<?php echo base_url();?>assets/css/fa-svg-with-js.css" rel="stylesheet">
     <script src="<?php echo base_url();?>assets/js/fontawesome-all.min.js"></script>
 </head>
-<body>
 
+<body>
 <div id="wrapper">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -38,13 +38,10 @@
         </button>
 
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="<?php echo base_url();?>index.php"><i class="fas fa-home"></i> <b>DOMOV</b></a></li>
-        </ul>
-
-        <ul class="nav navbar-right navbar-top-links">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <b>Meno študenta</b>
+            <li>
+                <a href="<?php echo base_url();?>index.php">
+                    <i class="fas fa-home"></i>
+                    <b>DOMOV</b>
                 </a>
             </li>
         </ul>
@@ -55,25 +52,25 @@
                     <li>
                         <a href="<?php echo site_url('firmy/index')?>" class="active">
                             <i class="fas fa-user-circle"></i>
-                            Firmy
+                            <b>Firmy</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('zodpovedne_osoby/index'); ?>" class="active">
                             <i class="fas fa-users"></i>
-                            Zodpovedné osoby
+                            <b>Zodpovedné osoby</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('skoly/index'); ?>" class="active">
                             <i class="fas fa-graduation-cap"></i>
-                            Školy
+                            <b>Školy</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('studenti/index'); ?>" class="active">
                             <i class="fas fa-users"></i>
-                            Študenti
+                            <b>Študenti</b>
                         </a>
                     </li>
                     <li>
@@ -91,13 +88,13 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <h1 class="page-header">Detail záznamu prehľad praxe:</h1>
+                <h1 class="page-header">Detail záznamu praxe:</h1>
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="panel panel-default">
 
                             <div class="panel-heading">
-                                <b>Prehľad praxe</b>
+                                <b>PRAX</b>
                                 <a href="<?php echo site_url('prehlad_praxe'); ?>" class="pull-right">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>

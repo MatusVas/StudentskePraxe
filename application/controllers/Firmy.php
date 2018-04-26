@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
 class Firmy extends CI_Controller
 {
     function __construct()
@@ -23,27 +24,22 @@ class Firmy extends CI_Controller
             $data['error_msg'] = $this->session->userdata('error_msg');
             $this->session->unset_userdata('error_msg');
         }
-        $config["base_url"] = base_url() . "index.php/firmy/index";
-        $config["total_rows"] = $this->Firmy_model->record_count();
-        $config["per_page"] = 4;
-        $config["uri_segment"] = 3;
-        //$config['use_page_numbers'] = TRUE;
-        //$config['num_links'] = $this->Temperatures_model->record_count();
+        $config['base_url'] = base_url() . 'index.php/firmy/index';
+        $config['total_rows'] = $this->Firmy_model->record_count();
+        $config['per_page'] = 1;
+        $config['uri_segment'] = 3;
         $config['cur_tag_open'] = '&nbsp;<a class="page-link">';
         $config['cur_tag_close'] = '</a>';
-        $config['next_link'] = 'Next';
-        $config['prev_link'] = 'Previous';
         $this->pagination->initialize($config);
         if($this->uri->segment(3)){
-            $page = ($this->uri->segment(3)) ;
+            $page = ($this->uri->segment(3));
         }
         else{
             $page = 0;
         }
-        $data["firmy"] = $this->Firmy_model->fetch_data($config["per_page"], $page);
+        $data['firmy'] = $this->Firmy_model->fetch_data($config['per_page'], $page);
         $str_links = $this->pagination->create_links();
-        $data["links"] = explode('&nbsp;',$str_links );
-        $data['firmy'] = $this->Firmy_model->getRows();
+        $data['links'] = explode('&nbsp;',$str_links );
         $this->load->view('firmy/index', $data);
     }
 

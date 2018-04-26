@@ -1,4 +1,6 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 
 class Zodpovedne_osoby extends CI_Controller
 {
@@ -23,7 +25,22 @@ class Zodpovedne_osoby extends CI_Controller
             $data['error_msg'] = $this->session->userdata('error_msg');
             $this->session->unset_userdata('error_msg');
         }
-        $data['zodpovedne_osoby'] = $this->Zodpovedne_osoby_model->getRows();
+        $config['base_url'] = base_url() . 'index.php/zodpovedne_osoby/index';
+        $config['total_rows'] = $this->Zodpovedne_osoby_model->record_count();
+        $config['per_page'] = 1;
+        $config['uri_segment'] = 3;
+        $config['cur_tag_open'] = '&nbsp;<a class="page-link">';
+        $config['cur_tag_close'] = '</a>';
+        $this->pagination->initialize($config);
+        if($this->uri->segment(3)){
+            $page = ($this->uri->segment(3));
+        }
+        else{
+            $page = 0;
+        }
+        $data['zodpovedne_osoby'] = $this->Zodpovedne_osoby_model->fetch_data($config['per_page'], $page);
+        $str_links = $this->pagination->create_links();
+        $data['links'] = explode('&nbsp;',$str_links );
         $this->load->view('zodpovedne_osoby/index', $data);
     }
 
@@ -104,7 +121,7 @@ class Zodpovedne_osoby extends CI_Controller
             }
         }
         $data['firmy'] = $this->Zodpovedne_osoby_model->get_firma_dropdown();
-        $data['firma_selected'] = $postData['Nazov'];
+        $data['firma_selected'] = $postData['idFirmy'];
         $data['post'] = $postData;
         $data['action'] = 'Edit';
         $this->load->view('zodpovedne_osoby/add_edit', $data);

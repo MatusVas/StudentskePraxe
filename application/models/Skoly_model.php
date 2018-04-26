@@ -61,4 +61,8 @@ class Skoly_model extends CI_Model
         return $this->db->count_all("skoly");
     }
 
+    public function skoly_count (){
+        return $this->db->count_all("skoly");
+    }
+
 }

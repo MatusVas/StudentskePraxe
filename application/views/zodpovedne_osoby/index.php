@@ -7,7 +7,7 @@
     <meta name="description" content="Študentská prax vo firmách.">
     <meta name="author" content="Matúš Vaš">
 
-    <title>Študentská prax</title>
+    <title>Študentská prax - Zodpovedné osoby</title>
 
     <!-- Page Icon -->
     <link rel="icon" href="<?php echo base_url();?>assets/logo.png">
@@ -25,8 +25,8 @@
     <link href="<?php echo base_url();?>assets/css/fa-svg-with-js.css" rel="stylesheet">
     <script src="<?php echo base_url();?>assets/js/fontawesome-all.min.js"></script>
 </head>
-<body>
 
+<body>
 <div id="wrapper">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -38,13 +38,10 @@
         </button>
 
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="<?php echo base_url();?>index.php"><i class="fas fa-home"></i> <b>DOMOV</b></a></li>
-        </ul>
-
-        <ul class="nav navbar-right navbar-top-links">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <b>Meno študenta</b>
+            <li>
+                <a href="<?php echo base_url();?>index.php">
+                    <i class="fas fa-home"></i>
+                    <b>DOMOV</b>
                 </a>
             </li>
         </ul>
@@ -55,25 +52,25 @@
                     <li>
                         <a href="<?php echo site_url('firmy/index')?>" class="active">
                             <i class="fas fa-user-circle"></i>
-                            Firmy
+                            <b>Firmy</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('zodpovedne_osoby/index'); ?>" class="active">
                             <i class="fas fa-users"></i>
-                            Zodpovedné osoby
+                            <b>Zodpovedné osoby</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('skoly/index'); ?>" class="active">
                             <i class="fas fa-graduation-cap"></i>
-                            Školy
+                            <b>Školy</b>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo site_url('studenti/index'); ?>" class="active">
                             <i class="fas fa-users"></i>
-                            Študenti
+                            <b>Študenti</b>
                         </a>
                     </li>
                     <li>
@@ -82,18 +79,11 @@
                             Prehľad praxe
                         </a>
                     </li>
-                    <li>
-                        <a href="<?php echo site_url('zarobok_studenta/index'); ?>" >
-                            <i class="far fa-chart-bar"></i>
-                            Zárobok študenta
-                        </a>
-                    </li>
                 </ul>
             </div>
     </nav>
 
     <div id="page-wrapper" style="margin-top:5%;">
-
         <div class="row">
 
             <div class="col-lg-12">
@@ -119,8 +109,8 @@
                                 <div class="panel panel-default ">
 
                                     <div class="panel-heading">
-                                        <b>Zodpovedné osoby</b>
-                                        <a href="<?php echo site_url('zodpovedne_osoby/add'); ?>" class="pull-right">
+                                        <b>ZODPOVEDNÉ OSOBY</b>
+                                        <a href="<?php echo site_url('zodpovedne_osoby/add'); ?>" class="pull-right" title="Pridať záznam">
                                             <i class="fas fa-plus"></i>
                                         </a>
                                     </div>
@@ -130,7 +120,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Názov firmy</th>
-                                            <th>Meno a priezvisko</th>
+                                            <th>Zodpovedná osoba</th>
                                             <th>Telefón</th>
                                             <th>E-mail</th>
                                             <th></th>
@@ -140,29 +130,30 @@
                                         <?php if (!empty($zodpovedne_osoby)): foreach ($zodpovedne_osoby as $Zodpovedne_osoby): ?>
                                             <tr>
                                                 <td>
-                                                    <?php echo '#' . $Zodpovedne_osoby['idZodpovedne_osoby']; ?>
+                                                    <?php echo '#' . $Zodpovedne_osoby->idZodpovedne_osoby; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $Zodpovedne_osoby['Nazov']; ?>
-                                                </td>
-                                                <td><?php echo $Zodpovedne_osoby['fullname']; ?>
+                                                    <?php echo $Zodpovedne_osoby->Nazov; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $Zodpovedne_osoby['Telefon']; ?>
+                                                    <?php echo $Zodpovedne_osoby->fullname; ?>
                                                 </td>
                                                 <td>
-                                                    <?php echo $Zodpovedne_osoby['Email']; ?>
+                                                    <?php echo $Zodpovedne_osoby->Telefon; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $Zodpovedne_osoby->Email; ?>
                                                 </td>
 
                                                 <td>
-                                                    <a href="<?php echo site_url('zodpovedne_osoby/view/' . $Zodpovedne_osoby['idZodpovedne_osoby']); ?>">
+                                                    <a href="<?php echo site_url('zodpovedne_osoby/view/' . $Zodpovedne_osoby->idZodpovedne_osoby); ?>" title="Detail záznamu">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
-                                                    <a href="<?php echo site_url('zodpovedne_osoby/edit/' . $Zodpovedne_osoby['idZodpovedne_osoby']); ?>">
+                                                    <a href="<?php echo site_url('zodpovedne_osoby/edit/' . $Zodpovedne_osoby->idZodpovedne_osoby); ?>" title="Editovať záznam">
                                                         <i class="far fa-edit"></i>
                                                     </a>
-                                                    <a href="<?php echo site_url('zodpovedne_osoby/delete/' . $Zodpovedne_osoby['idZodpovedne_osoby']); ?>"
-                                                       onclick="return confirm('Naozaj chcete zmazať tento záznam?')">
+                                                    <a href="<?php echo site_url('zodpovedne_osoby/delete/' . $Zodpovedne_osoby->idZodpovedne_osoby); ?>"
+                                                       onclick="return confirm('Naozaj chcete zmazať tento záznam?')" title="Zmazať záznam">
                                                         <i class="far fa-trash-alt"></i>
                                                     </a>
                                                 </td>
@@ -176,6 +167,14 @@
                                     </table>
                                 </div>
 
+                                <div id="pagination" style="align-content: center">
+                                    <ul class="pagination">
+                                        <?php foreach ($links as $link) {
+                                            echo "<li class=\"page-item\">". $link."</li>";
+                                        } ?>
+                                    </ul>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -185,7 +184,6 @@
 
         </div>
         <!-- /.row -->
-
         </div>
         <!-- /.page-wrapper -->
 

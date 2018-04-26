@@ -9,16 +9,16 @@ class Zodpovedne_osoby_model extends CI_Model
     function getRows($id = "")
     {
         if (!empty($id)) {
-            $this->db->select('zodpovedne_osoby.idZodpovedne_osoby, firmy.Nazov,
-            CONCAT(zodpovedne_osoby.Meno," ",zodpovedne_osoby.Priezvisko) as fullname,zodpovedne_osoby.Meno, zodpovedne_osoby.Priezvisko,
-            zodpovedne_osoby.Telefon, zodpovedne_osoby.Email')
+            $this->db->select('zodpovedne_osoby.idZodpovedne_osoby,firmy.Nazov,zodpovedne_osoby.idFirmy,
+            CONCAT(zodpovedne_osoby.Meno," ",zodpovedne_osoby.Priezvisko) as fullname, zodpovedne_osoby.Meno, 
+            zodpovedne_osoby.Priezvisko, zodpovedne_osoby.Telefon, zodpovedne_osoby.Email')
                 ->join('firmy','zodpovedne_osoby.idFirmy=firmy.idFirmy');
             $query = $this->db->get_where('zodpovedne_osoby', array('idZodpovedne_osoby' => $id));
             return $query->row_array();
         } else {
-            $this->db->select('zodpovedne_osoby.idZodpovedne_osoby, firmy.Nazov,
-            CONCAT(zodpovedne_osoby.Meno," ", zodpovedne_osoby.Priezvisko) as fullname,zodpovedne_osoby.Meno, zodpovedne_osoby.Priezvisko,
-            zodpovedne_osoby.Telefon, zodpovedne_osoby.Email')
+            $this->db->select('zodpovedne_osoby.idZodpovedne_osoby,firmy.Nazov,zodpovedne_osoby.idFirmy,
+            CONCAT(zodpovedne_osoby.Meno," ",zodpovedne_osoby.Priezvisko) as fullname, zodpovedne_osoby.Meno, 
+            zodpovedne_osoby.Priezvisko, zodpovedne_osoby.Telefon, zodpovedne_osoby.Email')
                 ->join('firmy','zodpovedne_osoby.idFirmy=firmy.idFirmy');
             $query = $this->db->get('zodpovedne_osoby');
             return $query->result_array();
@@ -52,7 +52,7 @@ class Zodpovedne_osoby_model extends CI_Model
     }
 
     public function get_firma_dropdown($id = ""){
-        $this->db->order_by('idFirmy')
+        $this->db->order_by('Nazov')
             ->select('idFirmy as id, Nazov')
             ->from('firmy');
         $query = $this->db->get();
@@ -80,6 +80,10 @@ class Zodpovedne_osoby_model extends CI_Model
     }
 
     public function record_count (){
+        return $this->db->count_all("zodpovedne_osoby");
+    }
+
+    public function zodpovedne_osoby_count (){
         return $this->db->count_all("zodpovedne_osoby");
     }
 

@@ -59,4 +59,9 @@ class Firmy_model extends CI_Model
     public function record_count (){
         return $this->db->count_all("firmy");
     }
+
+    public function firmy_count (){
+        return $this->db->count_all("firmy");
+    }
+
 }

@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Matt
- * Date: 23.4.2018
- * Time: 10:07
- */
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 
 class Pracovny_den extends CI_Controller
 {
@@ -30,14 +26,10 @@ class Pracovny_den extends CI_Controller
         }
         $config["base_url"] = base_url() . "index.php/pracovny_den/index";
         $config["total_rows"] = $this->Pracovny_den_model->record_count();
-        $config["per_page"] = 4;
+        $config["per_page"] = 1;
         $config["uri_segment"] = 3;
-        //$config['use_page_numbers'] = TRUE;
-        //$config['num_links'] = $this->Temperatures_model->record_count();
         $config['cur_tag_open'] = '&nbsp;<a class="page-link">';
         $config['cur_tag_close'] = '</a>';
-        $config['next_link'] = 'Next';
-        $config['prev_link'] = 'Previous';
         $this->pagination->initialize($config);
         if($this->uri->segment(3)){
             $page = ($this->uri->segment(3)) ;
@@ -48,19 +40,7 @@ class Pracovny_den extends CI_Controller
         $data["pracovny_den"] = $this->Pracovny_den_model->fetch_data($config["per_page"], $page);
         $str_links = $this->pagination->create_links();
         $data["links"] = explode('&nbsp;',$str_links );
-        $data['pracovny_den'] = $this->Pracovny_den_model->getRows();
         $this->load->view('pracovny_den/index', $data);
-    }
-
-    public function view($id)
-    {
-        $data = array();
-        if (!empty($id)) {
-            $data['pracovny_den'] = $this->Pracovny_den_model->getRows($id);
-            $this->load->view('pracovny_den/view', $data);
-        } else {
-            redirect('pracovny_den');
-        }
     }
 
     public function add()
@@ -77,7 +57,7 @@ class Pracovny_den extends CI_Controller
                 'Den' => $this->input->post('Den'),
                 'Hodinova_sadzba' => $this->input->post('Hodinova_sadzba'),
                 'Pocet_hodin' => $this->input->post('Pocet_hodin'),
-                'idPraxStudenta' => , //bude sem vstupovat ID, danej praxe studenta, ktore posielam do getrows
+                //'idPraxStudenta' => , //bude sem vstupovat ID, danej praxe studenta, ktore posielam do getrows
             );
 
             if ($this->form_validation->run() == true) {
@@ -100,18 +80,15 @@ class Pracovny_den extends CI_Controller
         $data = array();
         $postData = $this->Pracovny_den_model->getRows($id);
         if ($this->input->post('postSubmit')) {
-            $this->form_validation->set_rules('Nazov', 'Názov školy', 'required');
-            $this->form_validation->set_rules('Adresa', 'Adresa', 'required');
-            $this->form_validation->set_rules('Mesto', 'Mesto', 'required');
-            $this->form_validation->set_rules('Telefon', 'Telefón', 'required');
-            $this->form_validation->set_rules('Email', 'E-Mail', 'required');
+            $this->form_validation->set_rules('Den', 'Deň výkonu práce', 'required');
+            $this->form_validation->set_rules('Hodinova_sadzba', 'Hodinová sadzba', 'required');
+            $this->form_validation->set_rules('Pocet_hodin', 'Počet odrobených hodín', 'required');
 
             $postData = array(
-                'Nazov' => $this->input->post('Nazov'),
-                'Adresa' => $this->input->post('Adresa'),
-                'Mesto' => $this->input->post('Mesto'),
-                'Telefon' => $this->input->post('Telefon'),
-                'Email' => $this->input->post('Email'),
+                'Den' => $this->input->post('Den'),
+                'Hodinova_sadzba' => $this->input->post('Hodinova_sadzba'),
+                'Pocet_hodin' => $this->input->post('Pocet_hodin'),
+                //'idPraxStudenta' => , //bude sem vstupovat ID, danej praxe studenta, ktore posielam do getrows
             );
 
             if ($this->form_validation->run() == true) {

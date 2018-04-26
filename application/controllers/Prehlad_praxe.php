@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Matt
- * Date: 23.4.2018
- * Time: 8:44
- */
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 
 class Prehlad_praxe extends CI_Controller
 {
@@ -28,7 +24,22 @@ class Prehlad_praxe extends CI_Controller
             $data['error_msg'] = $this->session->userdata('error_msg');
             $this->session->unset_userdata('error_msg');
         }
-        $data['prehlad_praxe'] = $this->Prehlad_praxe_model->getRows();
+        $config['base_url'] = base_url() . 'index.php/prehlad_praxe/index';
+        $config['total_rows'] = $this->Prehlad_praxe_model->record_count();
+        $config['per_page'] = 1;
+        $config['uri_segment'] = 3;
+        $config['cur_tag_open'] = '&nbsp;<a class="page-link">';
+        $config['cur_tag_close'] = '</a>';
+        $this->pagination->initialize($config);
+        if($this->uri->segment(3)){
+            $page = ($this->uri->segment(3));
+        }
+        else{
+            $page = 0;
+        }
+        $data['prehlad_praxe'] = $this->Prehlad_praxe_model->fetch_data($config['per_page'], $page);
+        $str_links = $this->pagination->create_links();
+        $data['links'] = explode('&nbsp;',$str_links );
         $this->load->view('prehlad_praxe/index', $data);
     }
 
@@ -111,9 +122,9 @@ class Prehlad_praxe extends CI_Controller
             }
         }
         $data['studenti'] = $this->Prehlad_praxe_model->get_studenti_dropdown();
-        $data['studenti_selected'] = $postData['FullnameStudent'];
+        $data['studenti_selected'] = $postData['idStudenti'];
         $data['zodpovedne_osoby'] = $this->Prehlad_praxe_model->get_ZodpovedneOsoby_dropdown();
-        $data['zodpovedne_osoby_selected'] = $postData['FullnameOsoba'];
+        $data['zodpovedne_osoby_selected'] = $postData['idZodpovedne_osoby'];
         $data['post'] = $postData;
         $data['action'] = 'Edit';
         $this->load->view('prehlad_praxe/add_edit', $data);

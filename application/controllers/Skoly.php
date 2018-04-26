@@ -26,14 +26,10 @@ class Skoly extends CI_Controller
         }
         $config["base_url"] = base_url() . "index.php/skoly/index";
         $config["total_rows"] = $this->Skoly_model->record_count();
-        $config["per_page"] = 4;
+        $config["per_page"] = 1;
         $config["uri_segment"] = 3;
-        //$config['use_page_numbers'] = TRUE;
-        //$config['num_links'] = $this->Temperatures_model->record_count();
         $config['cur_tag_open'] = '&nbsp;<a class="page-link">';
         $config['cur_tag_close'] = '</a>';
-        $config['next_link'] = 'Next';
-        $config['prev_link'] = 'Previous';
         $this->pagination->initialize($config);
         if($this->uri->segment(3)){
             $page = ($this->uri->segment(3)) ;
@@ -44,7 +40,6 @@ class Skoly extends CI_Controller
         $data["skoly"] = $this->Skoly_model->fetch_data($config["per_page"], $page);
         $str_links = $this->pagination->create_links();
         $data["links"] = explode('&nbsp;',$str_links );
-        $data['skoly'] = $this->Skoly_model->getRows();
         $this->load->view('skoly/index', $data);
     }
 
