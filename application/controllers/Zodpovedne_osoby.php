@@ -27,7 +27,7 @@ class Zodpovedne_osoby extends CI_Controller
         }
         $config['base_url'] = base_url() . 'index.php/zodpovedne_osoby/index';
         $config['total_rows'] = $this->Zodpovedne_osoby_model->record_count();
-        $config['per_page'] = 1;
+        $config['per_page'] = 5;
         $config['uri_segment'] = 3;
         $config['cur_tag_open'] = '&nbsp;<a class="page-link">';
         $config['cur_tag_close'] = '</a>';
@@ -61,9 +61,9 @@ class Zodpovedne_osoby extends CI_Controller
         $postData = array();
 
         if ($this->input->post('postSubmit')) {
-            $this->form_validation->set_rules('Meno', 'Meno zodpovednej osoby', 'required');
-            $this->form_validation->set_rules('Priezvisko', 'Priezvisko zodpovednej osoby', 'required');
-            $this->form_validation->set_rules('Telefon', 'Telefón', 'required');
+            $this->form_validation->set_rules('Meno', 'Meno', 'required');
+            $this->form_validation->set_rules('Priezvisko', 'Priezvisko', 'required');
+            $this->form_validation->set_rules('Telefon', 'Telefónne číslo', 'required');
             $this->form_validation->set_rules('Email', 'E-mail', 'required');
             $this->form_validation->set_rules('idFirmy', 'Názov firmy', 'required');
 
@@ -97,9 +97,9 @@ class Zodpovedne_osoby extends CI_Controller
         $data = array();
         $postData = $this->Zodpovedne_osoby_model->getRows($id);
         if ($this->input->post('postSubmit')) {
-            $this->form_validation->set_rules('Meno', 'Meno zodpovednej osoby', 'required');
-            $this->form_validation->set_rules('Priezvisko', 'Priezvisko zodpovednej osoby', 'required');
-            $this->form_validation->set_rules('Telefon', 'Telefón', 'required');
+            $this->form_validation->set_rules('Meno', 'Meno', 'required');
+            $this->form_validation->set_rules('Priezvisko', 'Priezvisko', 'required');
+            $this->form_validation->set_rules('Telefon', 'Telefónne číslo', 'required');
             $this->form_validation->set_rules('Email', 'E-mail', 'required');
             $this->form_validation->set_rules('idFirmy', 'Názov firmy', 'required');
 

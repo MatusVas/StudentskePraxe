@@ -116,7 +116,7 @@
                                         <?php echo !empty($skoly['Mesto']) ? $skoly['Mesto'] : ''; ?>
                                     </p>
                                 </div>
-                                <div class="form-group"><label><b>Telefón:</b></label>
+                                <div class="form-group"><label><b>Telefónne číslo:</b></label>
                                     <p>
                                         <?php echo !empty($skoly['Telefon']) ? $skoly['Telefon'] : ''; ?>
                                     </p>

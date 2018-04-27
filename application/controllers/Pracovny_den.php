@@ -26,7 +26,7 @@ class Pracovny_den extends CI_Controller
         }
         $config["base_url"] = base_url() . "index.php/pracovny_den/index";
         $config["total_rows"] = $this->Pracovny_den_model->record_count();
-        $config["per_page"] = 1;
+        $config["per_page"] = 5;
         $config["uri_segment"] = 3;
         $config['cur_tag_open'] = '&nbsp;<a class="page-link">';
         $config['cur_tag_close'] = '</a>';
@@ -49,7 +49,7 @@ class Pracovny_den extends CI_Controller
         $postData = array();
 
         if ($this->input->post('postSubmit')) {
-            $this->form_validation->set_rules('Den', 'Deň výkonu práce', 'required');
+            $this->form_validation->set_rules('Den', 'Pracovný deň', 'required');
             $this->form_validation->set_rules('Hodinova_sadzba', 'Hodinová sadzba', 'required');
             $this->form_validation->set_rules('Pocet_hodin', 'Počet odrobených hodín', 'required');
 
@@ -80,7 +80,7 @@ class Pracovny_den extends CI_Controller
         $data = array();
         $postData = $this->Pracovny_den_model->getRows($id);
         if ($this->input->post('postSubmit')) {
-            $this->form_validation->set_rules('Den', 'Deň výkonu práce', 'required');
+            $this->form_validation->set_rules('Den', 'Pracovný deň', 'required');
             $this->form_validation->set_rules('Hodinova_sadzba', 'Hodinová sadzba', 'required');
             $this->form_validation->set_rules('Pocet_hodin', 'Počet odrobených hodín', 'required');
 

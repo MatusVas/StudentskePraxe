@@ -124,7 +124,7 @@
                                             <th>Rok narodenia</th>
                                             <th>Adresa</th>
                                             <th>Mesto</th>
-                                            <th>Telefón</th>
+                                            <th>Telefónne číslo</th>
                                             <th>E-mail</th>
                                             <th></th>
                                         </tr>

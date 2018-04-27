@@ -121,7 +121,7 @@
                                             <th>ID</th>
                                             <th>Názov firmy</th>
                                             <th>Zodpovedná osoba</th>
-                                            <th>Telefón</th>
+                                            <th>Telefónne číslo</th>
                                             <th>E-mail</th>
                                             <th></th>
                                         </tr>

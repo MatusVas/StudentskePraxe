@@ -26,7 +26,7 @@ class Studenti extends CI_Controller
         }
         $config['base_url'] = base_url() . 'index.php/studenti/index';
         $config['total_rows'] = $this->Studenti_model->record_count();
-        $config['per_page'] = 1;
+        $config['per_page'] = 5;
         $config['uri_segment'] = 3;
         $config['cur_tag_open'] = '&nbsp;<a class="page-link">';
         $config['cur_tag_close'] = '</a>';
@@ -65,7 +65,7 @@ class Studenti extends CI_Controller
             $this->form_validation->set_rules('Rok_narodenia', 'Rok narodenia', 'required');
             $this->form_validation->set_rules('Adresa', 'Adresa', 'required');
             $this->form_validation->set_rules('Mesto', 'Mesto', 'required');
-            $this->form_validation->set_rules('Telefon', 'Telefón', 'required');
+            $this->form_validation->set_rules('Telefon', 'Telefónne číslo', 'required');
             $this->form_validation->set_rules('Email', 'E-mail', 'required');
             $this->form_validation->set_rules('idSkoly', 'Názov školy', 'required');
 
@@ -107,7 +107,7 @@ class Studenti extends CI_Controller
             $this->form_validation->set_rules('Rok_narodenia', 'Rok narodenia', 'required');
             $this->form_validation->set_rules('Adresa', 'Adresa', 'required');
             $this->form_validation->set_rules('Mesto', 'Mesto', 'required');
-            $this->form_validation->set_rules('Telefon', 'Telefón', 'required');
+            $this->form_validation->set_rules('Telefon', 'Telefónne číslo', 'required');
             $this->form_validation->set_rules('Email', 'E-mail', 'required');
             $this->form_validation->set_rules('idSkoly', 'Názov školy', 'required');
 

@@ -154,8 +154,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="title"><b>Telefón:</b></label>
-                                        <input type="text" class="form-control" name="Telefon" placeholder="+421"
+                                        <label for="title"><b>Telefónne číslo:</b></label>
+                                        <input type="text" class="form-control" name="Telefon" placeholder="Zadajte telefónne číslo"
                                                value="<?php echo !empty($post['Telefon']) ? $post['Telefon'] : ''; ?>">
                                         <?php echo form_error('Telefon', '<p class="help-block text-danger">', '</p>'); ?>
                                     </div>

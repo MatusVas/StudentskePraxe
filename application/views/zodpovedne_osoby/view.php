@@ -111,7 +111,7 @@
                                         <?php echo !empty($zodpovedne_osoby['fullname']) ? $zodpovedne_osoby['fullname'] : ''; ?>
                                     </p>
                                 </div>
-                                <div class="form-group"><label><b>Telefón:</b></label>
+                                <div class="form-group"><label><b>Telefónne číslo:</b></label>
                                     <p>
                                         <?php echo !empty($zodpovedne_osoby['Telefon']) ? $zodpovedne_osoby['Telefon'] : ''; ?>
                                     </p>

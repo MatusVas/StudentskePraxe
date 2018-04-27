@@ -26,7 +26,7 @@ class Firmy extends CI_Controller
         }
         $config['base_url'] = base_url() . 'index.php/firmy/index';
         $config['total_rows'] = $this->Firmy_model->record_count();
-        $config['per_page'] = 1;
+        $config['per_page'] = 5;
         $config['uri_segment'] = 3;
         $config['cur_tag_open'] = '&nbsp;<a class="page-link">';
         $config['cur_tag_close'] = '</a>';
@@ -63,7 +63,7 @@ class Firmy extends CI_Controller
             $this->form_validation->set_rules('Nazov', 'Názov firmy', 'required');
             $this->form_validation->set_rules('Adresa', 'Adresa', 'required');
             $this->form_validation->set_rules('Mesto', 'Mesto', 'required');
-            $this->form_validation->set_rules('Telefon', 'Telefón', 'required');
+            $this->form_validation->set_rules('Telefon', 'Telefónne číslo', 'required');
             $this->form_validation->set_rules('Email', 'E-Mail', 'required');
 
             $postData = array(
@@ -97,7 +97,7 @@ class Firmy extends CI_Controller
             $this->form_validation->set_rules('Nazov', 'Názov firmy', 'required');
             $this->form_validation->set_rules('Adresa', 'Adresa', 'required');
             $this->form_validation->set_rules('Mesto', 'Mesto', 'required');
-            $this->form_validation->set_rules('Telefon', 'Telefón', 'required');
+            $this->form_validation->set_rules('Telefon', 'Telefónne číslo', 'required');
             $this->form_validation->set_rules('Email', 'E-Mail', 'required');
 
             $postData = array(

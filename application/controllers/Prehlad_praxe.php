@@ -26,7 +26,7 @@ class Prehlad_praxe extends CI_Controller
         }
         $config['base_url'] = base_url() . 'index.php/prehlad_praxe/index';
         $config['total_rows'] = $this->Prehlad_praxe_model->record_count();
-        $config['per_page'] = 1;
+        $config['per_page'] = 5;
         $config['uri_segment'] = 3;
         $config['cur_tag_open'] = '&nbsp;<a class="page-link">';
         $config['cur_tag_close'] = '</a>';
@@ -63,8 +63,8 @@ class Prehlad_praxe extends CI_Controller
             $this->form_validation->set_rules('Druh', 'Druh praxe', 'required');
             $this->form_validation->set_rules('Zaciatok', 'Začiatok praxe', 'required');
             $this->form_validation->set_rules('Koniec', 'Koniec praxe', 'required');
-            $this->form_validation->set_rules('idStudenti', 'Meno študenta', 'required');
-            $this->form_validation->set_rules('idZodpovedne_osoby', 'Meno zodpovednej osoby', 'required');
+            $this->form_validation->set_rules('idStudenti', 'Študent', 'required');
+            $this->form_validation->set_rules('idZodpovedne_osoby', 'Zodpovedná osoba', 'required');
 
             $postData = array(
                 'Druh' => $this->input->post('Druh'),
@@ -101,8 +101,8 @@ class Prehlad_praxe extends CI_Controller
             $this->form_validation->set_rules('Druh', 'Druh praxe', 'required');
             $this->form_validation->set_rules('Zaciatok', 'Začiatok praxe', 'required');
             $this->form_validation->set_rules('Koniec', 'Koniec praxe', 'required');
-            $this->form_validation->set_rules('idStudenti', 'Meno študenta', 'required');
-            $this->form_validation->set_rules('idZodpovedne_osoby', 'Meno zodpovednej osoby', 'required');
+            $this->form_validation->set_rules('idStudenti', 'Študent', 'required');
+            $this->form_validation->set_rules('idZodpovedne_osoby', 'Zodpovedná osoba', 'required');
 
             $postData = array(
                 'Druh' => $this->input->post('Druh'),
