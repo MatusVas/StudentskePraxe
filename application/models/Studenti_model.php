@@ -69,7 +69,13 @@ class Studenti_model extends CI_Model
 
     public function fetch_data($limit,$start) {
         $this->db->limit($limit,$start);
-        $query = $this->db->get("studenti");
+
+        $this->db->select('studenti.idStudenti, skoly.Nazov,studenti.idSkoly,
+            CONCAT(studenti.Meno," ",studenti.Priezvisko) as fullname, studenti.Meno, studenti.Priezvisko,
+            studenti.Rok_narodenia, studenti.Adresa, studenti.Mesto, studenti.Telefon, studenti.Email')
+            ->join('skoly','studenti.idSkoly=skoly.idSkoly');
+        $query = $this->db->get('studenti');
+
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
                 $data[] = $row;

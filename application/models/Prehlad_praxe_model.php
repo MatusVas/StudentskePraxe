@@ -87,7 +87,14 @@ class Prehlad_praxe_model extends CI_Model
 
     public function fetch_data($limit,$start) {
         $this->db->limit($limit,$start);
-        $query = $this->db->get("prax_studenta");
+
+        $this->db->select('prax_studenta.idPrax_studenta,CONCAT(studenti.Meno," ",studenti.Priezvisko) as StudentName, 
+            CONCAT(zodpovedne_osoby.Meno," ",zodpovedne_osoby.Priezvisko) as ZodpOsobaName,prax_studenta.Druh,prax_studenta.Zaciatok,
+            prax_studenta.Koniec,prax_studenta.idStudenti,prax_studenta.idZodpovedne_osoby')
+            ->join('studenti','prax_studenta.idStudenti=studenti.idStudenti')
+            ->join('zodpovedne_osoby','prax_studenta.idZodpovedne_osoby=zodpovedne_osoby.idZodpovedne_osoby');
+        $query = $this->db->get('prax_studenta');
+
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
                 $data[] = $row;

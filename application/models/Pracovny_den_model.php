@@ -11,7 +11,7 @@ class Pracovny_den_model extends CI_Model
         if (!empty($id)) {
             $this->db->select('idPracovny_den,idPrax_studenta,Den,Hodinova_sadzba,Pocet_hodin,
             (Pocet_hodin*Hodinova_sadzba) as total');
-            $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $id));
+            $query = $this->db->get_where('pracovny_den', array('idPracovny_den' => $id));
             return $query->row_array();
         }
     }
@@ -44,7 +44,15 @@ class Pracovny_den_model extends CI_Model
 
     public function fetch_data($limit,$start) {
         $this->db->limit($limit,$start);
-        $query = $this->db->get("pracovny_den");
+
+        // vypise zaznamy len kde je idPraxStudenta = tomu ktore tam vstupuje
+        if (!empty($id)) {
+            $this->db->select('idPracovny_den,idPrax_studenta,Den,Hodinova_sadzba,Pocet_hodin,
+            (Pocet_hodin*Hodinova_sadzba) as total');
+            $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $id));
+            $query->row_array();
+        }
+
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
                 $data[] = $row;

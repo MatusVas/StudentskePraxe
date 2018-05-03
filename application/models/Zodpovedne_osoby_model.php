@@ -69,7 +69,13 @@ class Zodpovedne_osoby_model extends CI_Model
 
     public function fetch_data($limit,$start) {
         $this->db->limit($limit,$start);
-        $query = $this->db->get("zodpovedne_osoby");
+
+        $this->db->select('zodpovedne_osoby.idZodpovedne_osoby,firmy.Nazov,zodpovedne_osoby.idFirmy,
+            CONCAT(zodpovedne_osoby.Meno," ",zodpovedne_osoby.Priezvisko) as fullname, zodpovedne_osoby.Meno, 
+            zodpovedne_osoby.Priezvisko, zodpovedne_osoby.Telefon, zodpovedne_osoby.Email')
+            ->join('firmy','zodpovedne_osoby.idFirmy=firmy.idFirmy');
+        $query = $this->db->get('zodpovedne_osoby');
+
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
                 $data[] = $row;
