@@ -85,7 +85,7 @@
 
             <div class="col-lg-12">
                 <div class="panel-heading">
-                    <h2>Pracovný deň študenta - Meno študenta:</h2>
+                    <h2>Pracovný deň študenta - <strong><?php echo $getMenoStudenta;?></strong>:</h2>
                 </div>
                 <!-- /.panel-heading -->
 
@@ -143,7 +143,8 @@
                                                     <?php echo $Pracovny_den->total; ?>
                                                 </td>
                                                 <td>
-                                                    <a href="<?php echo site_url('pracovny_den/edit/' . $Pracovny_den->idPracovny_den); ?>" title="Editovať záznam">
+                                                    <a href="<?php echo site_url('pracovny_den/edit/'.$Pracovny_den->idPrax_studenta.'/'.$Pracovny_den->idPracovny_den); ?>"
+                                                       title="Editovať záznam">
                                                         <i class="far fa-edit"></i>
                                                     </a>
                                                     <a href="<?php echo site_url('pracovny_den/delete/' . $Pracovny_den->idPracovny_den); ?>"
@@ -179,6 +180,7 @@
         </div>
         <!-- /.row -->
 
+        <p><h3>Graf zárobkov za rok 2018:</h3></p><br>
         <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
     </div>
@@ -200,9 +202,9 @@
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                labels: ["Január", "Február", "Marec", "Apríl", "Máj", "Jún", "Júl", "August", "September", "Október", "November", "December"],
                 datasets: [{
-                    data: [1339, 2145, 1483, 2003, 2489, 2092, 1034],
+                    data: [1339, 2145, 1483, 2003, 2489, 2092, 1034, 1000, 1001, 1544, 1422, 1320],
                     lineTension: 0,
                     backgroundColor: 'transparent',
                     borderColor: '#007bff',
@@ -219,7 +221,7 @@
                     }]
                 },
                 legend: {
-                    display: false,
+                    display: false
                 }
             }
         });

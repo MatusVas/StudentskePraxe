@@ -86,11 +86,11 @@ class Zodpovedne_osoby_model extends CI_Model
     }
 
     public function record_count (){
-        return $this->db->count_all("zodpovedne_osoby");
+        return $this->db->count_all('zodpovedne_osoby');
     }
 
     public function zodpovedne_osoby_count (){
-        return $this->db->count_all("zodpovedne_osoby");
+        return $this->db->count_all('zodpovedne_osoby');
     }
 
 }

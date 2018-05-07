@@ -86,11 +86,11 @@ class Studenti_model extends CI_Model
     }
 
     public function record_count (){
-        return $this->db->count_all("studenti");
+        return $this->db->count_all('studenti');
     }
 
     public function studenti_count (){
-        return $this->db->count_all("studenti");
+        return $this->db->count_all('studenti');
     }
 
 }

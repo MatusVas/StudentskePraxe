@@ -47,7 +47,7 @@ class Skoly_model extends CI_Model
 
     public function fetch_data($limit,$start) {
         $this->db->limit($limit,$start);
-        $query = $this->db->get("skoly");
+        $query = $this->db->get('skoly');
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
                 $data[] = $row;
@@ -58,11 +58,11 @@ class Skoly_model extends CI_Model
     }
 
     public function record_count (){
-        return $this->db->count_all("skoly");
+        return $this->db->count_all('skoly');
     }
 
     public function skoly_count (){
-        return $this->db->count_all("skoly");
+        return $this->db->count_all('skoly');
     }
 
 }

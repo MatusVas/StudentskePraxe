@@ -24,10 +24,10 @@ class Skoly extends CI_Controller
             $data['error_msg'] = $this->session->userdata('error_msg');
             $this->session->unset_userdata('error_msg');
         }
-        $config["base_url"] = base_url() . "index.php/skoly/index";
-        $config["total_rows"] = $this->Skoly_model->record_count();
-        $config["per_page"] = 5;
-        $config["uri_segment"] = 3;
+        $config['base_url'] = base_url() . 'index.php/skoly/index';
+        $config['total_rows'] = $this->Skoly_model->record_count();
+        $config['per_page'] = 5;
+        $config['uri_segment'] = 3;
         $config['cur_tag_open'] = '&nbsp;<a class="page-link">';
         $config['cur_tag_close'] = '</a>';
         $this->pagination->initialize($config);
@@ -37,9 +37,9 @@ class Skoly extends CI_Controller
         else{
             $page = 0;
         }
-        $data["skoly"] = $this->Skoly_model->fetch_data($config["per_page"], $page);
+        $data['skoly'] = $this->Skoly_model->fetch_data($config['per_page'], $page);
         $str_links = $this->pagination->create_links();
-        $data["links"] = explode('&nbsp;',$str_links );
+        $data['links'] = explode('&nbsp;',$str_links );
         $this->load->view('skoly/index', $data);
     }
 

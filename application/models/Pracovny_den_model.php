@@ -42,14 +42,13 @@ class Pracovny_den_model extends CI_Model
         return $delete ? true : false;
     }
 
-    public function fetch_data($limit,$start) {
+    public function fetch_data($idPraxStudenta,$limit,$start) {
         $this->db->limit($limit,$start);
 
-        // vypise zaznamy len kde je idPraxStudenta = tomu ktore tam vstupuje
-        if (!empty($id)) {
+        if (!empty($idPraxStudenta)) {
             $this->db->select('idPracovny_den,idPrax_studenta,Den,Hodinova_sadzba,Pocet_hodin,
             (Pocet_hodin*Hodinova_sadzba) as total');
-            $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $id));
+            $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $idPraxStudenta));
             $query->row_array();
         }
 
@@ -62,8 +61,8 @@ class Pracovny_den_model extends CI_Model
         return false;
     }
 
-    public function record_count (){
-        return $this->db->count_all("pracovny_den");
+    public function record_count ($idPraxStudenta){
+        return $this->db->where('idPrax_studenta', $idPraxStudenta)->count_all_results('pracovny_den');
     }
 
 }

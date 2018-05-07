@@ -46,7 +46,7 @@ class Firmy_model extends CI_Model
 
     public function fetch_data($limit,$start) {
         $this->db->limit($limit,$start);
-        $query = $this->db->get("firmy");
+        $query = $this->db->get('firmy');
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
                 $data[] = $row;
@@ -57,11 +57,11 @@ class Firmy_model extends CI_Model
     }
 
     public function record_count (){
-        return $this->db->count_all("firmy");
+        return $this->db->count_all('firmy');
     }
 
     public function firmy_count (){
-        return $this->db->count_all("firmy");
+        return $this->db->count_all('firmy');
     }
 
 }

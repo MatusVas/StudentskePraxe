@@ -105,7 +105,18 @@ class Prehlad_praxe_model extends CI_Model
     }
 
     public function record_count (){
-        return $this->db->count_all("prax_studenta");
+        return $this->db->count_all('prax_studenta');
+    }
+
+    public function getMenoStudenta($id){
+        $this->db->select('CONCAT(studenti.Meno," ",studenti.Priezvisko) AS StudentName')
+            ->join('studenti','prax_studenta.idStudenti = studenti.idStudenti');
+        $query = $this->db->get_where('prax_studenta', array('idPrax_studenta' => $id));
+        foreach ($query->result() as $row)
+        {
+            $StudentName = $row->StudentName;
+        }
+        return $StudentName;
     }
 
 }
