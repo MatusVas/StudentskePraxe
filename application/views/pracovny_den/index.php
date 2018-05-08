@@ -108,7 +108,7 @@
 
                                     <div class="panel-heading">
                                         <b>PRACOVNÉ DNI</b>
-                                        <a href="<?php echo site_url('pracovny_den/add'); ?>" class="pull-right" title="Pridať záznam">
+                                        <a href="<?php echo site_url('pracovny_den/add/' . $getIdPraxStudenta); ?>" class="pull-right" title="Pridať záznam">
                                             <i class="fas fa-plus"></i>
                                         </a>
                                     </div>
@@ -147,7 +147,7 @@
                                                        title="Editovať záznam">
                                                         <i class="far fa-edit"></i>
                                                     </a>
-                                                    <a href="<?php echo site_url('pracovny_den/delete/' . $Pracovny_den->idPracovny_den); ?>"
+                                                    <a href="<?php echo site_url('pracovny_den/delete/'.$Pracovny_den->idPrax_studenta.'/'.$Pracovny_den->idPracovny_den); ?>"
                                                        onclick="return confirm('Naozaj chcete zmazať tento záznam?')" title="Zmazať záznam">
                                                         <i class="far fa-trash-alt"></i>
                                                     </a>
