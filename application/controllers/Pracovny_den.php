@@ -44,6 +44,21 @@ class Pracovny_den extends CI_Controller
         $data['links'] = explode('&nbsp;',$str_links );
         $data['getIdPraxStudenta'] = $this->uri->segment(3);
         $data['getMenoStudenta'] = $this->Prehlad_praxe_model->getMenoStudenta($idPraxStudenta);
+
+        // zarobky za jednotlive mesiace
+        $data['getJanuary'] = $this->Pracovny_den_model->getJanuary($idPraxStudenta);
+        $data['getFebruary'] = $this->Pracovny_den_model->getFebruary($idPraxStudenta);
+        $data['getMarch'] = $this->Pracovny_den_model->getMarch($idPraxStudenta);
+        $data['getApril'] = $this->Pracovny_den_model->getApril($idPraxStudenta);
+        $data['getMay'] = $this->Pracovny_den_model->getMay($idPraxStudenta);
+        $data['getJune'] = $this->Pracovny_den_model->getJune($idPraxStudenta);
+        $data['getJuly'] = $this->Pracovny_den_model->getJuly($idPraxStudenta);
+        $data['getAugust'] = $this->Pracovny_den_model->getAugust($idPraxStudenta);
+        $data['getSeptember'] = $this->Pracovny_den_model->getSeptember($idPraxStudenta);
+        $data['getOctober'] = $this->Pracovny_den_model->getOctober($idPraxStudenta);
+        $data['getNovember'] = $this->Pracovny_den_model->getNovember($idPraxStudenta);
+        $data['getDecember'] = $this->Pracovny_den_model->getDecember($idPraxStudenta);
+
         $this->load->view('pracovny_den/index', $data);
     }
 

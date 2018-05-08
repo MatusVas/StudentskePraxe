@@ -204,7 +204,8 @@
             data: {
                 labels: ["Január", "Február", "Marec", "Apríl", "Máj", "Jún", "Júl", "August", "September", "Október", "November", "December"],
                 datasets: [{
-                    data: [1339, 2145, 1483, 2003, 2489, 2092, 1034, 1000, 1001, 1544, 1422, 1320],
+                    data: [<?php echo $getJanuary;?>, <?php echo $getFebruary;?>, <?php echo $getMarch;?>, <?php echo $getApril;?>, <?php echo $getMay;?>, <?php echo $getJune;?>,
+                        <?php echo $getJuly;?>, <?php echo $getAugust;?>, <?php echo $getSeptember;?>, <?php echo $getOctober;?>, <?php echo $getNovember;?>, <?php echo $getDecember;?>],
                     lineTension: 0,
                     backgroundColor: 'transparent',
                     borderColor: '#007bff',

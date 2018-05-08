@@ -65,4 +65,148 @@ class Pracovny_den_model extends CI_Model
         return $this->db->where('idPrax_studenta', $idPraxStudenta)->count_all_results('pracovny_den');
     }
 
+    public function getJanuary($idPraxStudenta){
+        $this->db->select('SUM(Hodinova_sadzba*Pocet_hodin) AS totalMonthJanuary')
+            ->where('YEAR(Den)','2018')
+            ->where('MONTH(Den)','1');
+        $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $idPraxStudenta));
+        foreach ($query->result() as $row)
+        {
+            $totalMonthJanuary = $row->totalMonthJanuary;
+        }
+        return $totalMonthJanuary;
+    }
+
+    public function getFebruary($idPraxStudenta){
+        $this->db->select('SUM(Hodinova_sadzba*Pocet_hodin) AS totalMonthFebruary')
+            ->where('YEAR(Den)','2018')
+            ->where('MONTH(Den)','2');
+        $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $idPraxStudenta));
+        foreach ($query->result() as $row)
+        {
+            $totalMonthFebruary = $row->totalMonthFebruary;
+        }
+        return $totalMonthFebruary;
+    }
+
+    public function getMarch($idPraxStudenta){
+        $this->db->select('SUM(Hodinova_sadzba*Pocet_hodin) AS totalMonthMarch')
+            ->where('YEAR(Den)','2018')
+            ->where('MONTH(Den)','3');
+        $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $idPraxStudenta));
+        foreach ($query->result() as $row)
+        {
+            $totalMonthMarch = $row->totalMonthMarch;
+        }
+        return $totalMonthMarch;
+    }
+
+    public function getApril($idPraxStudenta){
+        $this->db->select('SUM(Hodinova_sadzba*Pocet_hodin) AS totalMonthApril')
+            ->where('YEAR(Den)','2018')
+            ->where('MONTH(Den)','4');
+        $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $idPraxStudenta));
+        foreach ($query->result() as $row)
+        {
+            $totalMonthApril = $row->totalMonthApril;
+        }
+        return $totalMonthApril;
+    }
+
+    public function getMay($idPraxStudenta){
+        $this->db->select('SUM(Hodinova_sadzba*Pocet_hodin) AS totalMonthMay')
+            ->where('YEAR(Den)','2018')
+            ->where('MONTH(Den)','5');
+        $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $idPraxStudenta));
+        foreach ($query->result() as $row)
+        {
+            $totalMonthMay = $row->totalMonthMay;
+        }
+        return $totalMonthMay;
+    }
+
+    public function getJune($idPraxStudenta){
+        $this->db->select('SUM(Hodinova_sadzba*Pocet_hodin) AS totalMonthJune')
+            ->where('YEAR(Den)','2018')
+            ->where('MONTH(Den)','6');
+        $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $idPraxStudenta));
+        foreach ($query->result() as $row)
+        {
+            $totalMonthJune = $row->totalMonthJune;
+        }
+        return $totalMonthJune;
+    }
+
+    public function getJuly($idPraxStudenta){
+        $this->db->select('SUM(Hodinova_sadzba*Pocet_hodin) AS totalMonthJuly')
+            ->where('YEAR(Den)','2018')
+            ->where('MONTH(Den)','7');
+        $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $idPraxStudenta));
+        foreach ($query->result() as $row)
+        {
+            $totalMonthJuly = $row->totalMonthJuly;
+        }
+        return $totalMonthJuly;
+    }
+
+    public function getAugust($idPraxStudenta){
+        $this->db->select('SUM(Hodinova_sadzba*Pocet_hodin) AS totalMonthAugust')
+            ->where('YEAR(Den)','2018')
+            ->where('MONTH(Den)','8');
+        $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $idPraxStudenta));
+        foreach ($query->result() as $row)
+        {
+            $totalMonthAugust = $row->totalMonthAugust;
+        }
+        return $totalMonthAugust;
+    }
+
+    public function getSeptember($idPraxStudenta){
+        $this->db->select('SUM(Hodinova_sadzba*Pocet_hodin) AS totalMonthSeptember')
+            ->where('YEAR(Den)','2018')
+            ->where('MONTH(Den)','9');
+        $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $idPraxStudenta));
+        foreach ($query->result() as $row)
+        {
+            $totalMonthSeptember = $row->totalMonthSeptember;
+        }
+        return $totalMonthSeptember;
+    }
+
+    public function getOctober($idPraxStudenta){
+        $this->db->select('SUM(Hodinova_sadzba*Pocet_hodin) AS totalMonthOctober')
+            ->where('YEAR(Den)','2018')
+            ->where('MONTH(Den)','10');
+        $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $idPraxStudenta));
+        foreach ($query->result() as $row)
+        {
+            $totalMonthOctober = $row->totalMonthOctober;
+        }
+        return $totalMonthOctober;
+    }
+
+    public function getNovember($idPraxStudenta){
+        $this->db->select('SUM(Hodinova_sadzba*Pocet_hodin) AS totalMonthNovember')
+            ->where('YEAR(Den)','2018')
+            ->where('MONTH(Den)','11');
+        $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $idPraxStudenta));
+        foreach ($query->result() as $row)
+        {
+            $totalMonthNovember = $row->totalMonthNovember;
+        }
+        return $totalMonthNovember;
+    }
+
+    public function getDecember($idPraxStudenta){
+        $this->db->select('SUM(Hodinova_sadzba*Pocet_hodin) AS totalMonthDecember')
+            ->where('YEAR(Den)','2018')
+            ->where('MONTH(Den)','12');
+        $query = $this->db->get_where('pracovny_den', array('idPrax_studenta' => $idPraxStudenta));
+        foreach ($query->result() as $row)
+        {
+            $totalMonthDecember = $row->totalMonthDecember;
+        }
+        return $totalMonthDecember;
+    }
+
 }
