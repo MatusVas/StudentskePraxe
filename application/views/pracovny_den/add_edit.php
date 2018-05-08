@@ -105,7 +105,7 @@
 
                             <div class="panel-heading">
                                 <b>PRACOVNÝ DEŇ</b>
-                                <a href="<?php echo site_url('pracovny_den/index/' ); ?>" class="pull-right">
+                                <a href="<?php echo site_url('pracovny_den/index/' . $getIdPraxStudenta); ?>" class="pull-right">
                                     <i class="fas fa-arrow-left"></i>
                                 </a>
                             </div>
