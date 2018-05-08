@@ -116,7 +116,6 @@
                                     <table class="table table-striped">
                                         <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Pracovný deň</th>
                                             <th>Hodinová sadzba</th>
                                             <th>Počet odpracovaných hodín</th>
@@ -127,9 +126,6 @@
                                         <tbody id="userData">
                                         <?php if (!empty($pracovny_den)): foreach ($pracovny_den as $Pracovny_den): ?>
                                             <tr>
-                                                <td>
-                                                    <?php echo '#' . $Pracovny_den->idPracovny_den; ?>
-                                                </td>
                                                 <td>
                                                     <?php echo $Pracovny_den->Den; ?>
                                                 </td>

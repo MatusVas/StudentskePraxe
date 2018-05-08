@@ -118,7 +118,6 @@
                                     <table class="table table-striped">
                                         <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Názov školy</th>
                                             <th>Študent</th>
                                             <th>Rok narodenia</th>
@@ -132,9 +131,6 @@
                                         <tbody id="userData">
                                         <?php if (!empty($studenti)): foreach ($studenti as $Studenti): ?>
                                             <tr>
-                                                <td>
-                                                    <?php echo '#' . $Studenti->idStudenti; ?>
-                                                </td>
                                                 <td>
                                                     <?php echo $Studenti->Nazov; ?>
                                                 </td>

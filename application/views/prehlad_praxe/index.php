@@ -119,7 +119,6 @@
                                     <table class="table table-striped">
                                         <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Študent</th>
                                             <th>Zodpovedná osoba</th>
                                             <th>Druh praxe</th>
@@ -131,9 +130,6 @@
                                         <tbody id="userData">
                                         <?php if (!empty($prehlad_praxe)): foreach ($prehlad_praxe as $Prehlad_praxe): ?>
                                             <tr>
-                                                <td>
-                                                    <?php echo '#' . $Prehlad_praxe->idPrax_studenta; ?>
-                                                </td>
                                                 <td>
                                                     <?php echo $Prehlad_praxe->StudentName; ?>
                                                 </td>

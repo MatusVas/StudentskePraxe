@@ -118,7 +118,6 @@
                                     <table class="table table-striped">
                                         <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Názov firmy</th>
                                             <th>Adresa</th>
                                             <th>Mesto</th>
@@ -130,9 +129,6 @@
                                         <tbody id="userData">
                                         <?php if (!empty($firmy)): foreach ($firmy as $Firmy): ?>
                                             <tr>
-                                                <td>
-                                                    <?php echo '#' . $Firmy->idFirmy; ?>
-                                                </td>
                                                 <td>
                                                     <?php echo $Firmy->Nazov; ?>
                                                 </td>
